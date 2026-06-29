@@ -8,6 +8,8 @@ const sendEmail = async ({ to, subject, text }) => {
 
   const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
 
+  console.log("BREVO KEY EXISTS:", !!process.env.BREVO_API_KEY);
+
   await apiInstance.sendTransacEmail({
     sender: {
       email: process.env.EMAIL_USER,
@@ -26,6 +28,7 @@ const sendEmail = async ({ to, subject, text }) => {
   });
 
   console.log('Email sent successfully');
+  
 };
 
 module.exports = sendEmail;
